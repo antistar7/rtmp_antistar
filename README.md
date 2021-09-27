@@ -33,17 +33,17 @@ This image was inspired by similar docker images from [tiangolo](https://hub.doc
 
 ### To run the server
 ```
-docker run -d -p 2021:2021 -p 8080:8080 alqutami/rtmp-hls
+docker run -d -p 2021:2021 -p 8080:8080 antistar/rtmp-antistar
 ```
 
 For Alpine-based Image use:
 ```
-docker run -d -p 2021:2021 -p 8080:8080 alqutami/rtmp-hls:latest-alpine
+docker run -d -p 2021:2021 -p 8080:8080 antistar/rtmp-antistar:latest-alpine
 ```
 
 To run with custom conf file:
 ```
-docker run -d -p 2021:2021 -p 8080:8080 -v custom.conf:/etc/nginx/nginx.conf alqutami/rtmp-hls
+docker run -d -p 2021:2021 -p 8080:8080 -v custom.conf:/etc/nginx/nginx.conf antistar/rtmp-antistar
 ```
 where `custom.conf` is the new conf file for Nginx.
 
@@ -84,7 +84,7 @@ The provided demo players assume the stream-key is called `test` and the player 
 	* These web players are hardcoded to play stream key "test" at localhost.
 	* To change the stream source for these players. Download the html files and modify the `src` attribute in the video tag in the html file. You can then mount the modified files to the container as follows:
 		```
-		docker run -d -p 2021:2021 -p 8080:8080 -v custom_players:/usr/local/nginx/html/players alqutami/rtmp-hls
+		docker run -d -p 2021:2021 -p 8080:8080 -v custom_players:/usr/local/nginx/html/players antistar/rtmp-antistar
 		```
 		where `custom_players` is the directory holding the modified html files.
 
@@ -92,6 +92,6 @@ The provided demo players assume the stream-key is called `test` and the player 
 Released under MIT license.
 
 ## More info
- * **GitHub repo**: <https://github.com/TareqAlqutami/rtmp-hls-server.git>
+ * **GitHub repo**: <https://github.com/antistar7/rtmp_antistar.git>
 
- * **Docker Hub image**: <https://hub.docker.com/r/alqutami/rtmp-hls>
+ * **Docker Hub image**: <https://hub.docker.com/r/antistar/rtmp-antistar>
