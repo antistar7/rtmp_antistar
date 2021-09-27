@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>RTMP Live Streaming</title>
-		<title>Live Streaming</title>
-		<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-		<script src="https://unpkg.com/video.js/dist/video.js"></script>
-		<script src="https://unpkg.com/videojs-flash/dist/videojs-flash.min.js"></script>
-		<script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
-		<script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
-	</head>
 	<body>  
-		<h1>RTMP Player</h1>
-		<!--  <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="720" 
-			data-setup='{"techOrder": ["html5","flash"]}'>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
+		<style>.video-js .vjs-time-control{display: none;} .video-js .vjs-progress-control{display: none;}</style>
+		<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+		<video id="voxplay" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto" playsInline width="640" height="360" poster="http://res.cloudinary.com/cdowebcast/image/upload/v1501940982/webtv/voxstream-webtv_640x360.png">
 			<source src="rtmp://127.0.0.1:2021/live/test" type="rtmp/mp4">
+			<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 		</video>
-	  -->
-	  <video id="my_video_1" class="video-js" controls preload="auto" width="640" height="264" >
-	  	<source src="rtmp://127.0.0.1:2021/live/test" type="video/mp4">
-	  	<p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-	  </video>
+		<script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+		<script>
+			var myPlayer=videojs('voxplay',{},function(){var player=this,src=player.src;player.on("pause",function(){player.one("play",function(){player.src=src;player.load();player.play();});});})
+		</script>
 		<div id="footer">
 			<font size="2">antistar - 2021</font>
 		</div>
